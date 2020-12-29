@@ -11,9 +11,9 @@
 #ifndef MUDUO_NET_TCPSERVER_H
 #define MUDUO_NET_TCPSERVER_H
 
-#include <muduo/base/Atomic.h>
-#include <muduo/base/Types.h>
-#include <muduo/net/TcpConnection.h>
+#include "muduo/base/Atomic.h"
+#include "muduo/base/Types.h"
+#include "muduo/net/TcpConnection.h"
 
 #include <map>
 
@@ -68,7 +68,7 @@ class TcpServer : noncopyable
   std::shared_ptr<EventLoopThreadPool> threadPool()
   { return threadPool_; }
 
-  /// Starts the server if it's not listenning.
+  /// Starts the server if it's not listening.
   ///
   /// It's harmless to call it multiple times.
   /// Thread safe.

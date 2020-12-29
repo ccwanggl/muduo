@@ -6,13 +6,13 @@
 
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#include <muduo/net/TcpServer.h>
+#include "muduo/net/TcpServer.h"
 
-#include <muduo/base/Logging.h>
-#include <muduo/net/Acceptor.h>
-#include <muduo/net/EventLoop.h>
-#include <muduo/net/EventLoopThreadPool.h>
-#include <muduo/net/SocketsOps.h>
+#include "muduo/base/Logging.h"
+#include "muduo/net/Acceptor.h"
+#include "muduo/net/EventLoop.h"
+#include "muduo/net/EventLoopThreadPool.h"
+#include "muduo/net/SocketsOps.h"
 
 #include <stdio.h>  // snprintf
 
@@ -62,7 +62,7 @@ void TcpServer::start()
   {
     threadPool_->start(threadInitCallback_);
 
-    assert(!acceptor_->listenning());
+    assert(!acceptor_->listening());
     loop_->runInLoop(
         std::bind(&Acceptor::listen, get_pointer(acceptor_)));
   }

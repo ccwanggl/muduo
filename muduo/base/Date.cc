@@ -3,8 +3,9 @@
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#include <muduo/base/Date.h>
+#include "muduo/base/Date.h"
 #include <stdio.h>  // snprintf
+#include <time.h>  // struct tm
 
 namespace muduo
 {

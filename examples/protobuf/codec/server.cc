@@ -1,11 +1,11 @@
-#include "codec.h"
-#include "dispatcher.h"
-#include <examples/protobuf/codec/query.pb.h>
+#include "examples/protobuf/codec/codec.h"
+#include "examples/protobuf/codec/dispatcher.h"
+#include "examples/protobuf/codec/query.pb.h"
 
-#include <muduo/base/Logging.h>
-#include <muduo/base/Mutex.h>
-#include <muduo/net/EventLoop.h>
-#include <muduo/net/TcpServer.h>
+#include "muduo/base/Logging.h"
+#include "muduo/base/Mutex.h"
+#include "muduo/net/EventLoop.h"
+#include "muduo/net/TcpServer.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -43,8 +43,8 @@ class QueryServer : noncopyable
  private:
   void onConnection(const TcpConnectionPtr& conn)
   {
-    LOG_INFO << conn->localAddress().toIpPort() << " -> "
-        << conn->peerAddress().toIpPort() << " is "
+    LOG_INFO << conn->peerAddress().toIpPort() << " -> "
+        << conn->localAddress().toIpPort() << " is "
         << (conn->connected() ? "UP" : "DOWN");
   }
 

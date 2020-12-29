@@ -6,7 +6,7 @@
 #ifndef MUDUO_BASE_ATOMIC_H
 #define MUDUO_BASE_ATOMIC_H
 
-#include <muduo/base/noncopyable.h>
+#include "muduo/base/noncopyable.h"
 
 #include <stdint.h>
 
@@ -80,7 +80,7 @@ class AtomicIntegerT : noncopyable
 
   T getAndSet(T newValue)
   {
-    // in gcc >= 4.7: __atomic_exchange_n(&value, newValue, __ATOMIC_SEQ_CST)
+    // in gcc >= 4.7: __atomic_exchange_n(&value_, newValue, __ATOMIC_SEQ_CST)
     return __sync_lock_test_and_set(&value_, newValue);
   }
 
